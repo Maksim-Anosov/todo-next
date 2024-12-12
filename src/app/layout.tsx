@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./reset.css";
-import Header from "./components/Header";
+import { Header, ThemeProvider } from "@/components";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -14,14 +14,20 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body className="flex flex-col h-screen justify-between">
-				{/* <header className="text-center text-2xl h-36 mb-auto">Header</header> */}
-        <Header />
-				<main className="grow">{children}</main>
-				<footer className="text-center text-2xl h-36 mt-auto">
-					&copy;Ansaks
-				</footer>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Header />
+					<main className="grow">{children}</main>
+					<footer className="text-center text-2xl h-36 mt-auto">
+						&copy;Ansaks
+					</footer>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

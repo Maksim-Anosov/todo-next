@@ -1,6 +1,7 @@
 import { Vk, Telegram, Mail } from "../assets/index";
+import { ToggleTheme } from "./ToggleTheme";
 
-export default function Header() {
+export function Header() {
 	return (
 		<header className="text-center text-2xl h-36 mb-auto flex justify-center items-center gap-2">
 			<a
@@ -23,6 +24,7 @@ export default function Header() {
 			>
 				<Mail />
 			</a>
+			<ToggleTheme />
 		</header>
 	);
 }
