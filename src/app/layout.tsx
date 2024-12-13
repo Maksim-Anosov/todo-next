@@ -36,7 +36,7 @@ export default function RootLayout({
 					</div>
 					<Header />
 
-					<main className="grow">{children}</main>
+					<main className="grow overflow-hidden">{children}</main>
 
 					<footer className="text-center text-2xl min-h-[15vh] mt-auto flex justify-center items-center">
 						<p >&copy;Ansaks</p>
