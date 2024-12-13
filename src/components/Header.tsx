@@ -1,5 +1,11 @@
 import { Vk, Telegram, Mail } from "../assets/index";
 import { ToggleTheme } from "./ToggleTheme";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function Header() {
 	return (
@@ -18,12 +24,20 @@ export function Header() {
 			>
 				<Vk />
 			</a>
-			<a
-				href="mailto:eastcoastcustoms@yandex.ru"
-				className="hover:scale-125 transition-all"
-			>
-				<Mail />
-			</a>
+			<TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger className="hover:scale-125 transition-all">
+						<a
+							href="mailto:coach.anosov.fh@gmail.com"
+						>
+							<Mail />
+						</a>
+					</TooltipTrigger>
+					<TooltipContent>
+						<p>eastcoastcustoms@yandex.ru</p>
+					</TooltipContent>
+				</Tooltip>
+			</TooltipProvider>
 			<ToggleTheme />
 		</header>
 	);
