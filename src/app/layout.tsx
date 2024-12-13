@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./reset.css";
 import { Header, ThemeProvider } from "@/components";
+import { Nunito } from "next/font/google";
+
+const nunito = Nunito({
+	subsets: ["cyrillic"],
+	variable: "--font-nunito",
+	weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -14,7 +21,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en" suppressHydrationWarning className={nunito.className}>
 			<body className="relative flex flex-col h-screen justify-between">
 				<ThemeProvider
 					attribute="class"
@@ -22,15 +29,17 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-				<div className="absolute inset-0 z-[-10]">
-					<div className="line"></div>
-					<div className="line"></div>
-					<div className="line"></div>
-				</div>
+					<div className="absolute inset-0 z-[-10]">
+						<div className="line"></div>
+						<div className="line"></div>
+						<div className="line"></div>
+					</div>
 					<Header />
+
 					<main className="grow">{children}</main>
-					<footer className="text-center text-2xl h-36 mt-auto">
-						&copy;Ansaks
+
+					<footer className="text-center text-2xl h-36 mt-auto flex justify-center items-center">
+						<p >&copy;Ansaks</p>
 					</footer>
 				</ThemeProvider>
 			</body>
