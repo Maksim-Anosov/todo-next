@@ -38,7 +38,7 @@ export default function RootLayout({
 
 					<main className="grow">{children}</main>
 
-					<footer className="text-center text-2xl h-36 mt-auto flex justify-center items-center">
+					<footer className="text-center text-2xl min-h-[15vh] mt-auto flex justify-center items-center">
 						<p >&copy;Ansaks</p>
 					</footer>
 				</ThemeProvider>

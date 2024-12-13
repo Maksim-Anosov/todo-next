@@ -1,4 +1,4 @@
 export * from "./ui/tooltip";
-export * from "./theme-provider"
+export * from "./ThemeProvider"
 export * from "./Header"
 export * from "./ToggleTheme"

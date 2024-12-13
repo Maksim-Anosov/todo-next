@@ -6,10 +6,11 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
-export function Header() {
+export function Header({ className }: { className?: string }) {
 	return (
-		<header className="text-center text-2xl h-36 mb-auto flex justify-center items-center gap-2">
+		<header className={cn(className, "text-center text-2xl min-h-[15vh] mb-auto flex justify-center items-center gap-2")}>
 			<a
 				className="hover:scale-110 transition-all"
 				href="https://t.me/AnsaksS"
