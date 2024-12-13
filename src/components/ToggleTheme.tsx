@@ -7,7 +7,7 @@ export function ToggleTheme() {
 	const { theme, setTheme } = useTheme();
 
 	return (
-		<button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+		<button className="hover:scale-125 transition-all" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
 			{theme === "light" ? <Moon /> : <Sun />}
 		</button>
 	);

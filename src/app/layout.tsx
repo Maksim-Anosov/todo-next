@@ -15,13 +15,18 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className="flex flex-col h-screen justify-between">
+			<body className="relative flex flex-col h-screen justify-between">
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange
 				>
+				<div className="absolute inset-0 z-[-10]">
+					<div className="line"></div>
+					<div className="line"></div>
+					<div className="line"></div>
+				</div>
 					<Header />
 					<main className="grow">{children}</main>
 					<footer className="text-center text-2xl h-36 mt-auto">
