@@ -11,14 +11,14 @@ export function Header() {
 	return (
 		<header className="text-center text-2xl h-36 mb-auto flex justify-center items-center gap-2">
 			<a
-				className="hover:scale-125 transition-all"
+				className="hover:scale-110 transition-all"
 				href="https://t.me/AnsaksS"
 				target="_blank"
 			>
 				<Telegram />
 			</a>
 			<a
-				className="hover:scale-125 transition-all"
+				className="hover:scale-110 transition-all"
 				href="https://vk.com/id46614753"
 				target="_blank"
 			>
@@ -26,7 +26,7 @@ export function Header() {
 			</a>
 			<TooltipProvider>
 				<Tooltip>
-					<TooltipTrigger className="hover:scale-125 transition-all">
+					<TooltipTrigger className="hover:scale-110 transition-all">
 						<a
 							href="mailto:coach.anosov.fh@gmail.com"
 						>
@@ -34,7 +34,7 @@ export function Header() {
 						</a>
 					</TooltipTrigger>
 					<TooltipContent>
-						<p>eastcoastcustoms@yandex.ru</p>
+						<p>coach.anosov.fh@gmail.com</p>
 					</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>
