@@ -10,8 +10,8 @@ export interface Todo {
 interface TodosState {
 	todos: Todo[];
 	addTodo: (text: string) => void;
-	handleToggle: (id: string) => void
-	removeTodo: (id: string) => void
+	handleToggle: (id: string) => void;
+	removeTodo: (id: string) => void;
 }
 
 export const useTodos = create<TodosState>((set) => ({
@@ -20,17 +20,17 @@ export const useTodos = create<TodosState>((set) => ({
 		set((state) => ({
 			todos: [{ id: uuidv4(), text, isDone: false }, ...state.todos],
 		})),
-  handleToggle: (id: string) =>
-    set((state) => ({
-      todos: state.todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, isDone: !todo.isDone };
-        }
-        return todo;
-      })
-    })),
-  removeTodo: (id: string) =>
-    set((state) => ({
-      todos: state.todos.filter((todo) => todo.id !== id),
-    })),
+	handleToggle: (id: string) =>
+		set((state) => ({
+			todos: state.todos.map((todo) => {
+				if (todo.id === id) {
+					return { ...todo, isDone: !todo.isDone };
+				}
+				return todo;
+			}),
+		})),
+	removeTodo: (id: string) =>
+		set((state) => ({
+			todos: state.todos.filter((todo) => todo.id !== id),
+		})),
 }));
