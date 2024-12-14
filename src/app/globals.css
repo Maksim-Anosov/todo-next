@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-html::-webkit-scrollbar {
+/* html::-webkit-scrollbar {
 	width: 1px;
-}
+} */
 
 :root {
 	--background: 0 0% 100%;
@@ -74,8 +74,8 @@ html::-webkit-scrollbar {
 		#ffffff 100%
 	)
 }
-
-/* @layer base {
+/* 
+@layer base {
 	* {
 		@apply border-border;
 	}

@@ -17,7 +17,7 @@ export function AddTodo() {
 	};
 
 	return (
-		<div className="flex gap-2 mt-4">
+		<div className="flex gap-2 mt-4 p-1">
 			<Input
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
@@ -25,7 +25,7 @@ export function AddTodo() {
 				placeholder="What needs to be isDone?"
 				className="grow"
 			/>
-			<Button onClick={handleAddTodo}>
+			<Button variant="outline" onClick={handleAddTodo}>
 				<Plus size={25} />
 			</Button>
 		</div>
