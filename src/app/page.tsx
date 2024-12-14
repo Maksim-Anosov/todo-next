@@ -1,4 +1,5 @@
 import { AddTodo, TodoList } from "@/components";
+import { TodoCounter } from "@/components/TodoCounter";
 
 export default function App() {
 	return (
@@ -6,6 +7,9 @@ export default function App() {
 			<h2 className="text-center text-5xl">TODOS</h2>
 			<AddTodo />
 			<TodoList />
+			<footer>
+				<TodoCounter />
+			</footer>
 		</section>
 	);
 }
