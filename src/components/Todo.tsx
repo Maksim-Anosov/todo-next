@@ -15,7 +15,7 @@ export function Todo() {
 	return (
 		<Tabs
 			defaultValue="all"
-			className="overflow-hidden grow flex flex-col justify-between p-1"
+			className="overflow-hidden grow flex flex-col justify-between"
 		>
 			<TabsContent className="overflow-y-auto" value="all">
 				<TodoList todos={allTodos} />
