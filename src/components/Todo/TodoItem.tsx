@@ -2,8 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { Check, Trash2 } from "lucide-react";
-import { Button } from "./ui";
-import { Todo, useTodos } from "@/store/TodosStore";
+import { Button } from "../ui";
+import { Todo, useTodos } from "./TodosStore";
 
 export function TodoItem({ id, text, isDone }: Todo) {
 	const handleToggle = useTodos((state) => state.handleToggle);
@@ -12,11 +12,15 @@ export function TodoItem({ id, text, isDone }: Todo) {
 		<li
 			className={cn(
 				"flex justify-between items-center gap-2 transition-opacity duration-300 p-1",
-				isDone && "line-through opacity-50"
+				isDone && "line-through opacity-25"
 			)}
 			key={id}
 		>
-			<Button variant="outline" className="w-12 h-9" onClick={() => handleToggle(id)}>
+			<Button
+				variant="outline"
+				className="w-12 h-9"
+				onClick={() => handleToggle(id)}
+			>
 				{isDone ? <Check /> : ""}
 			</Button>
 			<p className="text-3xl text-center uppercase grow">{text}</p>

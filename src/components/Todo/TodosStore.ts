@@ -15,6 +15,7 @@ interface TodosState {
 	addTodo: (text: string) => void;
 	handleToggle: (id: string) => void;
 	removeTodo: (id: string) => void;
+	clearCompleted: () => void;
 }
 
 export const useTodos = create<TodosState>()(
@@ -37,6 +38,10 @@ export const useTodos = create<TodosState>()(
 				removeTodo: (id: string) =>
 					set((state) => {
 						state.todos = state.todos.filter((todo) => todo.id !== id);
+					}),
+				clearCompleted: () =>
+					set((state) => {
+						state.todos = state.todos.filter((todo) => !todo.isDone);
 					}),
 			})),
 			{ name: "todos", version: 1 }

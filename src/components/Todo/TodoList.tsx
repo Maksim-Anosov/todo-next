@@ -1,7 +1,8 @@
 "use client";
 
-import { Todo } from "@/store/TodosStore";
+import React from "react";
 import { TodoItem } from "./TodoItem";
+import { Todo } from "./TodosStore";
 
 export function TodoList({ todos }: { todos: Todo[] }) {
 	return (
