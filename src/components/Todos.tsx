@@ -8,7 +8,7 @@ import {
 	TodoCounter,
 	TodoList,
 } from "@/components";
-import { useFilteredTodos } from "../hooks/useFileredTodos";
+import { useFilteredTodos } from "../hooks/useFiltredTodos";
 
 export function Todo() {
 	const { activeTodos, completedTodos, allTodos } = useFilteredTodos();

@@ -23,7 +23,7 @@ export function AddTodo() {
 				onChange={(e) => setValue(e.target.value)}
 				onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
 				placeholder="What needs to be isDone?"
-				className="grow"
+				className="grow uppercase"
 			/>
 			<Button variant="outline" onClick={handleAddTodo}>
 				<Plus size={25} />

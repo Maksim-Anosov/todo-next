@@ -1,5 +1,5 @@
 import { AddTodo } from "@/components";
-import { Todo } from "@/components/Todo";
+import { Todo } from "@/components/Todos";
 
 export default function App() {
 	return (
