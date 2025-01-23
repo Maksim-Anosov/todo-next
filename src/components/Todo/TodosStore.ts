@@ -16,6 +16,7 @@ interface TodosState {
 	handleToggle: (id: string) => void;
 	removeTodo: (id: string) => void;
 	clearCompleted: () => void;
+	changeTodo: (newTodos: Todo[]) => void;
 }
 
 export const useTodos = create<TodosState>()(
@@ -23,11 +24,11 @@ export const useTodos = create<TodosState>()(
 		persist(
 			immer((set) => ({
 				todos: [],
-				addTodo: (text: string) =>
+				addTodo: (text) =>
 					set((state) => {
-						state.todos.push({ id: uuidv4(), text, isDone: false });
+						state.todos.push({ id: uuidv4(), text, isDone: false }); 
 					}),
-				handleToggle: (id: string) =>
+				handleToggle: (id) =>
 					set((state) => {
 						state.todos.forEach((todo) => {
 							if (todo.id === id) {
@@ -35,7 +36,7 @@ export const useTodos = create<TodosState>()(
 							}
 						});
 					}),
-				removeTodo: (id: string) =>
+				removeTodo: (id) =>
 					set((state) => {
 						state.todos = state.todos.filter((todo) => todo.id !== id);
 					}),
@@ -43,6 +44,7 @@ export const useTodos = create<TodosState>()(
 					set((state) => {
 						state.todos = state.todos.filter((todo) => !todo.isDone);
 					}),
+				changeTodo: (newTodos) => set({ todos: newTodos }),
 			})),
 			{ name: "todos", version: 1 }
 		)

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./reset.css";
-import { Header, ThemeProvider } from "@/components";
+import { Header, Providers } from "@/components";
 import { Nunito } from "next/font/google";
+
 
 const nunito = Nunito({
 	subsets: ["cyrillic"],
@@ -23,12 +24,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning className={nunito.className}>
 			<body className="relative flex flex-col h-screen justify-between">
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
+				<Providers>
 					<div className="absolute inset-0 z-[-10]">
 						<div className="line"></div>
 						<div className="line"></div>
@@ -41,7 +37,7 @@ export default function RootLayout({
 					<footer className="text-center text-2xl min-h-[15vh] mt-auto flex justify-center items-center">
 						<p >&copy;Ansaks</p>
 					</footer>
-				</ThemeProvider>
+					</Providers>
 			</body>
 		</html>
 	);
