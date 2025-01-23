@@ -6,7 +6,7 @@ export default function App() {
 			<div>
 				<h2 className="text-center text-5xl">TODOS</h2>
 			</div>
-			<Todos />
+				<Todos />
 		</section>
 	);
 }

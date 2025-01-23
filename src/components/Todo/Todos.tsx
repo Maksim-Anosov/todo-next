@@ -18,7 +18,7 @@ export function Todos() {
 				className="overflow-hidden grow flex flex-col justify-between"
 			>
 				<TabsContent className="overflow-y-auto" value="all">
-					<TodoList todos={allTodos} />
+					<TodoList todos={allTodos} value="all" />
 				</TabsContent>
 				<TabsContent className="overflow-y-auto" value="active">
 					<TodoList todos={activeTodos} />

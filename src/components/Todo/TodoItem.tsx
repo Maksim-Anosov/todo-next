@@ -1,20 +1,49 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Check, Trash2 } from "lucide-react";
+import { Check, Grip, Trash2 } from "lucide-react";
 import { Button } from "../ui";
 import { Todo, useTodos } from "./TodosStore";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { useState } from "react";
 
-export function TodoItem({ id, text, isDone }: Todo) {
+interface TodoListProps extends Todo {
+	value?: string;
+}
+
+export function TodoItem({ id, text, isDone, value }: TodoListProps) {
 	const handleToggle = useTodos((state) => state.handleToggle);
 	const removeTodo = useTodos((state) => state.removeTodo);
+	const { attributes, listeners, setNodeRef, transform, transition } =
+		useSortable({ id });
+
+	const [isDragging, setIsDragging] = useState(false);
+
+	const style = {
+		transform: CSS.Transform.toString(transform),
+		transition,
+		cursor: isDragging ? "grabbing" : "default",
+	};
+
+	const handleMouseDown = () => {
+		setIsDragging(true);
+	};
+
+	const handleMouseUp = () => {
+		setIsDragging(false);
+	};
+
 	return (
 		<li
+			key={id}
+			ref={setNodeRef}
+			id={id}
+			style={style}
 			className={cn(
 				"flex justify-between items-center gap-2 transition-opacity duration-300 p-1",
 				isDone && "line-through opacity-25"
 			)}
-			key={id}
 		>
 			<Button
 				variant="outline"
@@ -23,10 +52,26 @@ export function TodoItem({ id, text, isDone }: Todo) {
 			>
 				{isDone ? <Check /> : ""}
 			</Button>
-			<p className="text-3xl text-center uppercase grow">{text}</p>
+			<p
+				className={cn("text-3xl text-center uppercase grow", value && "pl-14")}
+			>
+				{text}
+			</p>
 			<Button variant="outline" onClick={() => removeTodo(id)}>
 				<Trash2 size={25} />
 			</Button>
+			{value && (
+				<Button
+					{...attributes}
+					{...listeners}
+					onMouseDown={handleMouseDown}
+					onMouseUp={handleMouseUp}
+					variant="outline"
+					className={isDragging ? "cursor-grabbing" : "cursor-grab"}
+				>
+					<Grip size={25} />
+				</Button>
+			)}
 		</li>
 	);
 }
