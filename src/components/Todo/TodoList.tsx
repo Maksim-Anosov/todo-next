@@ -2,7 +2,7 @@
 
 import { TodoItem } from "./TodoItem";
 import { Todo, useTodos } from "./TodosStore";
-import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import { DndContext, DragEndEvent, KeyboardSensor, MouseSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { arrayMove, SortableContext } from "@dnd-kit/sortable";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 
@@ -24,9 +24,19 @@ export function TodoList({ todos, value }: TodoListProps) {
 		}
 	};
 
+	const mouseSensor = useSensor(MouseSensor);
+  const touchSensor = useSensor(TouchSensor);
+  const keyboardSensor = useSensor(KeyboardSensor);
+
+	const sensors = useSensors(
+    mouseSensor,
+    touchSensor,
+    keyboardSensor,
+  );
+
 	return (
 		<ul className="mt-4 overflow-y-auto flex flex-col gap-4">
-			<DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={handleDragEnd}>
+			<DndContext sensors={sensors} modifiers={[restrictToVerticalAxis]} onDragEnd={handleDragEnd}>
 				<SortableContext items={todos}>
 					{todos.map((todo) => (
 						<TodoItem
