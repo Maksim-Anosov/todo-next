@@ -25,12 +25,12 @@ export async function getLocation() {
   }
 }
 
-export type Weather = {
+export type IWeather = {
   temp: number
   city: string
 };
 
-function getTempAndCityname(latitude: string, longitude: string): Promise<Weather> {
+function getTempAndCityname(latitude: string, longitude: string): Promise<IWeather> {
   const url = `https://api.weatherapi.com/v1/current.json?key=566ce730aaf349ad82a95230252401&q=${latitude},${longitude}`;
 
   return fetch(url)

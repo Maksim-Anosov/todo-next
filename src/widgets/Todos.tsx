@@ -1,29 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from "../ui";
-import { AddTodo } from "./AddTodo";
-import { useFilteredTodos } from "./hooks/useFiltredTodos";
-import { TodoCounter } from "./TodoCounter";
-import { TodoList } from "./TodoList";
-import { useTodos } from "./TodosStore";
-import { getLocation, Weather } from "@/lib/utils";
+import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from "../shared/ui";
+import { AddTodo } from "../features/Todo/ui/AddTodo";
+import { useFilteredTodos } from "../features/Todo/model/hooks/useFiltredTodos";
+import { TodoCounter } from "../features/Todo/ui/TodoCounter";
+import { TodoList } from "../features/Todo/ui/TodoList";
+import { useTodos } from "../features/Todo/model/TodosStore";
 
 export function Todos() {
   const { activeTodos, completedTodos, allTodos } = useFilteredTodos();
   const clearCompleted = useTodos((state) => state.clearCompleted);
-  const [data, setData] = useState<Weather | undefined>(undefined);
-  useEffect(() => {
-    getLocation().then((res) => setData(res));
-  }, []);
 
   return (
     <>
-      <div className="flex justify-between">
-        <p>{data && `Location: ${data.city}`}</p>
-        <p>{data && `Temperature: ${data.temp}°C`}</p>
-      </div>
-
       <AddTodo />
       <Tabs
         defaultValue="all"

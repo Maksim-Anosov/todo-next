@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { Check, Grip, Trash2 } from "lucide-react";
-import { Button } from "../ui";
-import { Todo, useTodos } from "./TodosStore";
+import { Button } from "@/shared/ui";
+import { Todo, useTodos } from "../model/TodosStore";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useState } from "react";

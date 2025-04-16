@@ -1,4 +1,4 @@
-import { useTodos } from "@/components/Todo/TodosStore";
+import { useTodos } from "../TodosStore";
 
 export function useFilteredTodos() {
 	const { todos } = useTodos();
