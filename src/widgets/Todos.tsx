@@ -27,7 +27,7 @@ export function Todos() {
         <TabsContent className="overflow-y-auto" value="completed">
           <TodoList todos={completedTodos} />
         </TabsContent>
-        <div className="p-1 flex flex-col gap-1 justify-between md:flex-row">
+        <div className="p-1 flex flex-col gap-1 justify-between md:flex-row mt-4">
           <TodoCounter />
           <TabsList>
             <TabsTrigger className="uppercase" value="all">

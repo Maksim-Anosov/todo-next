@@ -22,7 +22,7 @@ export function AddTodo() {
   }, []);
 
   return (
-    <div className="flex gap-2 mt-4 p-1">
+    <div className="flex gap-2 my-4 p-1">
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
