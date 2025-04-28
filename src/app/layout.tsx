@@ -13,6 +13,9 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   title: "Todos by Ansaks",
   description: "What do you want to do?",
+  icons: {
+    icon: '/favicon.png'
+  },
 };
 
 export default function RootLayout({
