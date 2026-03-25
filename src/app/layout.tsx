@@ -3,6 +3,7 @@ import "./globals.css";
 import "./reset.css";
 import { Nunito } from "next/font/google";
 import { Providers } from "@/shared/Providers";
+import { SendsayScript } from "@/shared/lib/sendsay-script";
 
 const nunito = Nunito({
   subsets: ["cyrillic"],
@@ -39,6 +40,7 @@ export default function RootLayout({
             <p>&copy;Ansaks</p>
           </footer>
         </Providers>
+        <SendsayScript />
       </body>
     </html>
   );
